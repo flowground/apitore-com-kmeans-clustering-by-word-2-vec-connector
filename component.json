@@ -1,0 +1,51 @@
+{
+    "title": "Kmeans clustering by word2vec",
+    "description": "Kmeans clustering by word2vec.<BR />[Endpoint] https://api.apitore.com/api/48",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/apitore.com/kmeansClusteringByWord2vec/0.0.1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.apitore.com/api/48",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "clusterUsingPOST": {
+            "main": "./lib/actions/clusterUsingPOST.js",
+            "title": "Words clustering by word2vec",
+            "description": "kmeans clustering by word2vec.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/clustering-response\">clustering-response</a><BR />&nbsp; Class: com.apitore.banana.response.clustering.ClusterResponseEntity<BR />",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/clusterUsingPOST.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
